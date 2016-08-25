@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class PhoneList {
 
-		private ArrayList<String> numbers;
+		
 		private int numOfTestCase;
 		private int PhoneNumList;
+		private ArrayList<String> numbers;
 		private String phoneNum;
 		private	Scanner k;
 		private String ConsistencyCheck;
@@ -28,7 +29,7 @@ public class PhoneList {
 				 System.exit(0);
 				}
 			for (int i =0; i < numOfTestCase; i++){
-				addNumbers();
+				getNumbers();
 				if(ConsistencyCheck())
 					ConsistencyCheck = "Yes";
 				else 
@@ -37,7 +38,7 @@ public class PhoneList {
 			return ConsistencyCheck;
 		}
 
-		private void addNumbers() {
+		private void getNumbers() {
 
 			PhoneNumList = k.nextInt();
 			if(PhoneNumList < 1 || PhoneNumList > 10000){
@@ -61,19 +62,21 @@ public class PhoneList {
 		}
 
 		private boolean ConsistencyCheck(){
-				for(int i=0; i<PhoneNumList-1; i++){
-					String potentialPrefix = numbers.get(i);
-					String couldHavePrefix = numbers.get(i+1);
-					if(couldHavePrefix.length() >= potentialPrefix.length()){
-						phoneNum = couldHavePrefix.substring(0,potentialPrefix.length());
-						if(phoneNum.equals(potentialPrefix))
+
+			String prefixNum;
+			String prefixOfprefixNum; 
+
+				for(int i=0; i< PhoneNumList-1; i++){
+					prefixNum = numbers.get(i);
+					prefixOfprefixNum = numbers.get(i+1);
+					if(prefixOfprefixNum.length() >= prefixNum.length()){
+						phoneNum = prefixOfprefixNum.substring(0,prefixNum.length());
+						if(phoneNum.equals(prefixNum))
 							return false;				
 					}
 				}
 				return true;
 			}
-
-
 
 	public static void main(String[] args){
 
