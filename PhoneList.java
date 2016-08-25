@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PhoneList {
 
 		
-		private int numOfTestCase;
+		private int numOfTestCases;
 		private int PhoneNumList;
 		private ArrayList<String> numbers;
 		private String phoneNum;
@@ -22,13 +22,13 @@ public class PhoneList {
 		private String start() 
 		{
 			
-			numOfTestCase = k.nextInt();
+			numOfTestCases = k.nextInt();
 
-			if (numOfTestCase < 1 || numOfTestCase > 40){
-				 System.out.println(" Invalid number of testcases. 1 <= numberOfTestCase <= 40");
+			if (numOfTestCases < 1 || numOfTestCases > 40){
+				 System.out.println("Invalid number of testcases. 1 <= numberOfTestCases <= 40");
 				 System.exit(0);
 				}
-			for (int i =0; i < numOfTestCase; i++){
+			for (int i =0; i < numOfTestCases; i++){
 				getNumbers();
 				if(ConsistencyCheck())
 					ConsistencyCheck = "Yes";
@@ -51,7 +51,7 @@ public class PhoneList {
 
 				phoneNum = k.next();
 				if(phoneNum.length() > 10){
-					System.out.println(" The length of phone number shouldn't be longer than 10 digits.");
+					System.out.println("The length of phone number shouldn't be longer than 10 digits.");
 					System.exit(0);
 
 				}
